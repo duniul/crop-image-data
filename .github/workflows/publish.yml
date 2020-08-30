@@ -1,10 +1,10 @@
-name: Run tests
+name: Test and publish package
 
 on:
   release:
     types: [created]
 
-jobs:
+test-and-publish:
   test:
     runs-on: ubuntu-latest
 
