@@ -1,7 +1,6 @@
 name: Run tests
 
-on: 
-  branch: push
+on: push
 
 jobs:
   test:
