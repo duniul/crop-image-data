@@ -4,8 +4,8 @@ on:
   release:
     types: [created]
 
-test-and-publish:
-  test:
+jobs:
+  test-and-publish:
     runs-on: ubuntu-latest
 
     steps:
