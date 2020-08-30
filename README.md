@@ -1,6 +1,6 @@
 # crop-image-data
 
-✂️ Function for cropping an image through its [ImageData][image-data].
+✂️ Function for cropping an image through its [ImageData].
 
 ## Installation
 
@@ -12,8 +12,7 @@
 
 ### `cropImageData(imageData, cropOptions)`
 
-Creates a cropped version of an ImageData-instance. Does not mutate the recieved
-instance.
+Creates a cropped version of an ImageData-instance. Does not mutate the recieved instance.
 
 **Parameters:**
 
@@ -49,5 +48,5 @@ const croppedSides = cropImageData(imageData, { left: 10, right: 10 });
 - [trim-image-data] - finds and trims whitespace (or a specified color) from an image using
   `crop-image-data`
 
-[image-data]: (https://developer.mozilla.org/en-US/docs/Web/API/ImageData)
-[trim-image-data]: (https://github.com/duniul/trim-image-data)
+[imagedata]: https://developer.mozilla.org/en-US/docs/Web/API/ImageData
+[trim-image-data]: https://github.com/duniul/trim-image-data
