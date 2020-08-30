@@ -21,6 +21,9 @@
   ],
   "main": "lib/cjs/index.js",
   "modules": "lib/es/index.js",
+  "files": [
+    "lib/**"
+  ],
   "scripts": {
     "build": "rimraf lib && yarn build:es && yarn build:cjs",
     "build:es": "tsc --outDir lib/es --module es6",
