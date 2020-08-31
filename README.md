@@ -1,5 +1,8 @@
 # crop-image-data
 
+[![](https://img.shields.io/npm/v/crop-image-data?color=brightgreen)](https://www.npmjs.com/package/crop-image-data)
+[![](https://img.shields.io/bundlephobia/minzip/crop-image-data)](https://bundlephobia.com/result?p=crop-image-data)
+
 ✂️ Function for cropping an image through its [ImageData].
 
 ## Installation
