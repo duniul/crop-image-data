@@ -1,5 +1,5 @@
 import ImageData from '@canvas/image-data';
-import cropImageData from './cropImageData';
+import cropImageData from '.';
 
 global.ImageData = ImageData;
 
