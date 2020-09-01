@@ -1,32 +1,43 @@
-import { CropOptions, ImageDataLike, ImageDataRegularArray } from './types';
+import { CropOptions, ImageDataLike } from './types';
 
-function cropX(imageData: ImageDataRegularArray, cropCount: number, fromLeft: boolean) {
+function cropX(imageData: ImageDataLike, { left = 0, right = 0 }: { left: number; right: number }) {
   const { data, width, height } = imageData;
   const dataLength = data.length;
+  const newWidth = width - left - right;
   const rowLength = width * 4;
-  const newWidth = width - cropCount;
-  let newData: number[] = [];
+  const newRowLength = newWidth * 4;
+  const leftCrop = left * 4;
+  const newData: number[] = [];
 
   // loop through each row
   for (let x = 0; x < dataLength; x += rowLength) {
-    // remove requested number of pixels from row
-    const currentRow = data.slice(x, x + rowLength);
-    const rowSlice = fromLeft
-      ? currentRow.slice(cropCount * 4)
-      : currentRow.slice(0, -(cropCount * 4));
+    const newRowStart = x + leftCrop;
+    const newRowEnd = newRowStart + newRowLength;
 
-    newData = [...newData, ...rowSlice];
+    for (let i = newRowStart; i < newRowEnd; i += 4) {
+      newData.push(data[i]);
+      newData.push(data[i + 1]);
+      newData.push(data[i + 2]);
+      newData.push(data[i + 3]);
+    }
   }
 
   return { data: newData, height, width: newWidth };
 }
 
-function cropY(imageData: ImageDataRegularArray, cropCount: number, fromTop: boolean) {
+function cropY(imageData: ImageDataLike, { top = 0, bottom = 0 }: { top: number; bottom: number }) {
   const { data, width, height } = imageData;
-  const boundCropCount = Math.min(height, cropCount);
-  const indexCount = boundCropCount * width * 4;
-  const newHeight = height - boundCropCount;
-  const newData = fromTop ? data.slice(indexCount) : data.slice(0, -indexCount);
+  const rowLength = width * 4;
+  const topIndex = top * rowLength;
+  const bottomIndex = bottom * rowLength;
+  const newHeight = height - top - bottom;
+  const newDataEnd = data.length - bottomIndex;
+  const newData = [];
+
+  // save each index within the cropped area (avoid .slice() for performance)
+  for (let i = topIndex; i < newDataEnd; i++) {
+    newData.push(data[i]);
+  }
 
   return { data: newData, height: newHeight, width };
 }
@@ -45,11 +56,14 @@ export default function cropImageData(
     height: imageData.height,
   };
 
-  if (top) newImageData = cropY(newImageData, top, true);
-  if (right) newImageData = cropX(newImageData, right, false);
-  if (bottom) newImageData = cropY(newImageData, bottom, false);
-  if (left) newImageData = cropX(newImageData, left, true);
+  if (top || bottom) {
+    newImageData = cropY(newImageData, { top, bottom });
+  }
+
+  if (left || right) {
+    newImageData = cropX(newImageData, { left, right });
+  }
 
   const { data, height, width } = newImageData;
-  return new ImageData(Uint8ClampedArray.from(data), width, height);
+  return new ImageData(Uint8ClampedArray.from(data as number[]), width, height);
 }
