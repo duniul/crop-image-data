@@ -1,6 +1,6 @@
 {
   "name": "crop-image-data",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Function for cropping an image through its ImageData.",
   "author": "Daniel Grefberg <hello@danielgrefberg.com>",
   "license": "ISC",

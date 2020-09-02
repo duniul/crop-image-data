@@ -1,6 +1,6 @@
 {
   "name": "crop-image-data-demo",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Demo application for crop-image-data.",
   "author": "Daniel Grefberg <hello@danielgrefberg.com>",
   "private": true,
@@ -17,7 +17,7 @@
     "last 2 Safari major versions"
   ],
   "dependencies": {
-    "crop-image-data": "1.0.0"
+    "crop-image-data": "^1.0.1"
   },
   "devDependencies": {
     "@babel/core": "7.11.5",
