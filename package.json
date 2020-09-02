@@ -1,6 +1,5 @@
 {
   "name": "crop-image-data-monorepo",
-  "version": "1.0.0",
   "description": "Function for cropping an image through its ImageData.",
   "author": "Daniel Grefberg <hello@danielgrefberg.com>",
   "private": true,
