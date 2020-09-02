@@ -20,7 +20,7 @@
     "crop-image-data": "1.0.0"
   },
   "devDependencies": {
-    "@babel/core": "7.2.0",
-    "parcel-bundler": "1.6.1"
+    "@babel/core": "7.11.5",
+    "parcel-bundler": "1.12.4"
   }
 }
