@@ -30,7 +30,8 @@
     "build:cjs": "tsc --outDir lib/cjs --module commonjs",
     "dev": "rimraf lib && yarn build:es --watch",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "prepublish": "yarn build"
   },
   "devDependencies": {
     "@canvas/image-data": "1.0.0",
