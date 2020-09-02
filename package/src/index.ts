@@ -30,10 +30,7 @@ function cropX(imageData: ImageDataLike, { left = 0, right = 0 }: { left: number
     const newRowEnd = newRowStart + newRowLength;
 
     for (let i = newRowStart; i < newRowEnd; i += 4) {
-      newData.push(data[i]);
-      newData.push(data[i + 1]);
-      newData.push(data[i + 2]);
-      newData.push(data[i + 3]);
+      newData.push(data[i], data[i + 1], data[i + 2], data[i + 3]);
     }
   }
 
@@ -57,16 +54,24 @@ function cropY(imageData: ImageDataLike, { top = 0, bottom = 0 }: { top: number;
   return { data: newData, height: newHeight, width };
 }
 
+function toNumber(options: CropOptions) {
+  return Object.fromEntries(
+    Object.entries(options).map(([key, value]) => [key, Number(value || 0)])
+  );
+}
+
 export default function cropImageData(
   imageData: ImageDataLike,
-  { top = 0, right = 0, bottom = 0, left = 0 }: CropOptions
-) {
+  cropOptions: CropOptions
+): ImageData {
+  const { top, right, bottom, left } = toNumber(cropOptions);
+
   if (imageData.height < top + bottom || imageData.width < left + right) {
     return new ImageData(1, 1);
   }
 
   let newImageData = {
-    data: Array.from(imageData.data),
+    data: imageData.data,
     width: imageData.width,
     height: imageData.height,
   };
