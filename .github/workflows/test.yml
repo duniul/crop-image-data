@@ -12,5 +12,8 @@ jobs:
       - name: Install dependencies
         run: yarn
 
+      - name: Build package
+        run: yarn build
+
       - name: Test package
         run: yarn test

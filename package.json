@@ -1,45 +1,47 @@
 {
-  "name": "crop-image-data",
+  "name": "crop-image-data-monorepo",
   "version": "1.0.0",
   "description": "Function for cropping an image through its ImageData.",
   "author": "Daniel Grefberg <hello@danielgrefberg.com>",
+  "private": true,
   "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/duniul/crop-image-data.git"
-  },
-  "homepage": "https://github.com/duniul/crop-image-data#readme",
-  "bugs": {
-    "url": "https://github.com/duniul/crop-image-data/issues"
-  },
-  "keywords": [
-    "image",
-    "image-data",
-    "image-editing",
-    "canvas",
-    "crop-image"
-  ],
-  "main": "lib/cjs/index.js",
-  "modules": "lib/es/index.js",
-  "files": [
-    "lib/**"
+  "workspaces": [
+    "package",
+    "demo"
   ],
   "scripts": {
-    "build": "rimraf lib && yarn build:es && yarn build:cjs",
-    "build:es": "tsc --outDir lib/es --module es6",
-    "build:cjs": "tsc --outDir lib/cjs --module commonjs",
-    "test": "jest",
-    "test:watch": "jest --watch"
+    "dev": "lerna run dev --parallel",
+    "build": "lerna run build",
+    "test": "lerna run test",
+    "publish:lerna": "lerna publish --conventional-commits --create-release github --exact --yes"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "(*.js|*.ts|*.tsx)": [
+      "prettier --write",
+      "eslint --fix --ext .js,.ts,.tsx --max-warnings=0"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
   "devDependencies": {
-    "@canvas/image-data": "1.0.0",
-    "@types/jest": "26.0.10",
-    "@typescript-eslint/eslint-plugin": "3.10.1",
-    "@typescript-eslint/parser": "3.10.1",
-    "eslint-plugin-prettier": "3.1.4",
-    "jest": "26.4.2",
-    "prettier": "2.1.1",
-    "ts-jest": "26.3.0",
-    "typescript": "4.0.2"
+    "@commitlint/cli": "9.1.2",
+    "@commitlint/config-conventional": "9.1.2",
+    "commitizen": "4.2.1",
+    "cz-conventional-changelog": "3.3.0",
+    "eslint": "7.8.1",
+    "eslint-config-acast": "4.7.0",
+    "husky": "4.2.5",
+    "lerna": "3.22.1",
+    "lint-staged": "10.2.13",
+    "prettier": "2.1.1"
   }
 }

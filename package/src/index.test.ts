@@ -74,7 +74,7 @@ describe('crops edges', () => {
     expect(result.width).toEqual(6);
   });
 
-  it('crops right edge', () => {
+  it('crops left edge', () => {
     // prettier-ignore
     const expectedDataOut = [
       /* p, p, */ p, p, p, p,

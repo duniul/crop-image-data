@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>✂️ crop-image-data demo</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <div id="app">
+      <div id="canvas-wrapper">
+        <canvas id="canvas"></canvas>
+      </div>
+
+      <div>
+        <div class="action-bar">
+          <input id="file-input" type="file" accept="image/*" />
+        </div>
+        <div class="action-bar">
+          <input id="top-input" type="number" placeholder="Top pixels" disabled />
+          <input id="right-input" type="number" placeholder="Right pixels" disabled />
+          <input id="bottom-input" type="number" placeholder="Bottom pixels" disabled />
+          <input id="left-input" type="number" placeholder="Left pixels" disabled />
+          <button id="crop-button" disabled>Crop</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="src/index.js"></script>
+  </body>
+</html>

@@ -14,8 +14,11 @@ jobs:
       - name: Install dependencies
         run: yarn
 
+      - name: Build package
+        run: yarn build
+
       - name: Test package
         run: yarn test
 
       - name: Publish package
-        run: npm publish
+        run: yarn lerna:publish

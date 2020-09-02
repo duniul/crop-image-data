@@ -1,0 +1,26 @@
+{
+  "name": "crop-image-data-demo",
+  "version": "1.0.0",
+  "description": "Demo application for crop-image-data.",
+  "author": "Daniel Grefberg <hello@danielgrefberg.com>",
+  "private": true,
+  "license": "ISC",
+  "main": "index.html",
+  "scripts": {
+    "dev": "parcel index.html --open",
+    "build": "parcel build index.html"
+  },
+  "browserslist": [
+    "last 2 Chrome major versions",
+    "last 2 Firefox major versions",
+    "last 2 Edge major versions",
+    "last 2 Safari major versions"
+  ],
+  "dependencies": {
+    "crop-image-data": "1.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.0",
+    "parcel-bundler": "^1.6.1"
+  }
+}
