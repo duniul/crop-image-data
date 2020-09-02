@@ -13,7 +13,7 @@
     "dev": "lerna run dev --parallel",
     "build": "lerna run build --stream",
     "test": "lerna run test --parallel",
-    "publish:lerna": "lerna publish --conventional-commits --create-release github --exact --ignore crop-image-data-demo"
+    "release": "lerna publish --conventional-commits --create-release github --force-git-tag"
   },
   "husky": {
     "hooks": {
