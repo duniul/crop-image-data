@@ -5,6 +5,9 @@
 
 ✂️ Function for cropping an image through its [ImageData].
 
+## Demo
+https://crop-image-data.netlify.app
+
 ## Installation
 
 | npm                           | yarn                        |
