@@ -1,18 +1,38 @@
 {
-  "name": "crop-image-data-monorepo",
+  "name": "crop-image-data",
+  "version": "1.0.2",
   "description": "Function for cropping an image through its ImageData.",
   "author": "Daniel Grefberg <hello@danielgrefberg.com>",
-  "private": true,
   "license": "ISC",
-  "workspaces": [
-    "package",
-    "demo"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/duniul/crop-image-data.git"
+  },
+  "homepage": "https://github.com/duniul/crop-image-data#readme",
+  "bugs": {
+    "url": "https://github.com/duniul/crop-image-data/issues"
+  },
+  "keywords": [
+    "image",
+    "image-data",
+    "image-editing",
+    "canvas",
+    "crop-image"
+  ],
+  "main": "lib/cjs/index.js",
+  "module": "lib/es/index.js",
+  "files": [
+    "lib/**"
   ],
   "scripts": {
-    "dev": "lerna run dev --parallel",
-    "build": "lerna run build --stream",
-    "test": "lerna run test --parallel",
-    "release": "lerna publish --conventional-commits --create-release github --force-git-tag"
+    "build": "rimraf lib && yarn build:es && yarn build:cjs",
+    "build:es": "tsc --outDir lib/es --module es6",
+    "build:cjs": "tsc --outDir lib/cjs --module commonjs",
+    "dev": "rimraf lib && yarn build:es --watch",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "prepublish": "yarn build",
+    "release": "semantic-release"
   },
   "husky": {
     "hooks": {
@@ -32,15 +52,21 @@
     }
   },
   "devDependencies": {
+    "@canvas/image-data": "1.0.0",
     "@commitlint/cli": "9.1.2",
     "@commitlint/config-conventional": "9.1.2",
+    "@types/jest": "26.0.10",
     "commitizen": "4.2.1",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "7.8.1",
     "eslint-config-acast": "4.7.0",
     "husky": "4.2.5",
+    "jest": "26.4.2",
     "lerna": "3.22.1",
     "lint-staged": "10.2.13",
-    "prettier": "2.1.1"
+    "prettier": "2.1.1",
+    "semantic-release": "17.1.1",
+    "ts-jest": "26.3.0",
+    "typescript": "4.0.2"
   }
 }
