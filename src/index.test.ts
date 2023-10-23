@@ -1,7 +1,9 @@
 import ImageData from '@canvas/image-data';
+import { describe, expect, it } from 'vitest';
 import cropImageData from '.';
 
-global.ImageData = ImageData;
+// biome-ignore lint/suspicious/noExplicitAny: test override
+(global as any).ImageData = ImageData;
 
 it('does nothing if no crop bounds are passed', () => {
   const imageData = new ImageData(5, 5);
