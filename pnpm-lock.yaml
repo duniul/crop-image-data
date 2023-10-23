@@ -28,10 +28,10 @@ devDependencies:
     version: 3.0.3
   prettier-plugin-organize-imports:
     specifier: 3.2.3
-    version: 3.2.3(prettier@3.0.3)(typescript@4.0.2)
+    version: 3.2.3(prettier@3.0.3)(typescript@5.2.2)
   typescript:
-    specifier: 4.0.2
-    version: 4.0.2
+    specifier: 5.2.2
+    version: 5.2.2
   vitest:
     specifier: ^0.34.6
     version: 0.34.6
@@ -2979,7 +2979,7 @@ packages:
       which-pm: 2.0.0
     dev: true
 
-  /prettier-plugin-organize-imports@3.2.3(prettier@3.0.3)(typescript@4.0.2):
+  /prettier-plugin-organize-imports@3.2.3(prettier@3.0.3)(typescript@5.2.2):
     resolution:
       {
         integrity: sha512-KFvk8C/zGyvUaE3RvxN2MhCLwzV6OBbFSkwZ2OamCrs9ZY4i5L77jQ/w4UmUr+lqX8qbaqVq6bZZkApn+IgJSg==,
@@ -2996,7 +2996,7 @@ packages:
         optional: true
     dependencies:
       prettier: 3.0.3
-      typescript: 4.0.2
+      typescript: 5.2.2
     dev: true
 
   /prettier@2.8.8:
@@ -3797,12 +3797,12 @@ packages:
       is-typed-array: 1.1.12
     dev: true
 
-  /typescript@4.0.2:
+  /typescript@5.2.2:
     resolution:
       {
-        integrity: sha512-e4ERvRV2wb+rRZ/IQeb3jm2VxBsirQLpQhdxplZ2MEzGvDkkMmPglecnNDfSUBivMjP93vRbngYYDQqQ/78bcQ==,
+        integrity: sha512-mI4WrpHsbCIcwT9cF4FZvr80QUeKvsUsUvKDoR+X/7XHQH98xYD8YHZg7ANtz2GtZt/CBq2QJ0thkGJMHfqc1w==,
       }
-    engines: { node: '>=4.2.0' }
+    engines: { node: '>=14.17' }
     hasBin: true
     dev: true
 
