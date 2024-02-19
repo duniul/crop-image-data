@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.0.4
+
+### Patch Changes
+
+- Add typedocs to exported types and functions. _[`#3`](https://github.com/duniul/crop-image-data/pull/3) [`a9d38a0892859eb578fd56dccf6e817eafe4a093`](https://github.com/duniul/crop-image-data/commit/a9d38a0892859eb578fd56dccf6e817eafe4a093) [@duniul](https://github.com/duniul)_
+
 ## 1.0.3
 
 ### Patch Changes
