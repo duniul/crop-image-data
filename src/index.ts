@@ -1,13 +1,22 @@
+/**
+ * An object similar to an `ImageData` object, but which also allows for regular numerical arrays for data.
+ */
 export interface ImageDataLike {
   data: Uint8ClampedArray | number[];
   height: number;
   width: number;
 }
 
+/**
+ * An `ImageData`-like object that uses a regular numerical array for the data instead of a `Uint8ClampedArray`.
+ */
 export interface ImageDataRegularArray extends ImageDataLike {
   data: number[];
 }
 
+/**
+ * The number of pixels to crop from each side of an image.
+ */
 export interface CropOptions {
   top?: number;
   right?: number;
@@ -60,6 +69,13 @@ function toNumber(options: CropOptions) {
   );
 }
 
+/**
+ * Crops an `ImageData` object by the specified amount of pixels on each side.
+ *
+ * @param imageData `ImageData` of the image to calculate the trim for
+ * @param cropOptions Options to configure the crop operation
+ * @returns a new, cropped `ImageData` object
+ */
 export default function cropImageData(
   imageData: ImageDataLike,
   cropOptions: CropOptions
