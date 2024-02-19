@@ -1,5 +1,5 @@
 ---
-'trim-image-data': patch
+'crop-image-data': patch
 ---
 
 Add typedocs to exported types and functions.
