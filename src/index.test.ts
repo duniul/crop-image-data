@@ -1,6 +1,6 @@
 import ImageData from '@canvas/image-data';
 import { describe, expect, it } from 'vitest';
-import cropImageData from '.';
+import cropImageData from './index.js';
 
 // biome-ignore lint/suspicious/noExplicitAny: test override
 (global as any).ImageData = ImageData;
